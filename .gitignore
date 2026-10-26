@@ -1,0 +1,19 @@
+.venv/
+__pycache__/
+*.pyc
+.ipynb_checkpoints/
+.env
+
+# Data and models are large, never commit
+data/raw/*
+data/processed/*
+data/features/*
+!data/**/.gitkeep
+models/*.pt
+models/*.pth
+*.faiss
+*.db
+
+# Frontend
+node_modules/
+dist/
