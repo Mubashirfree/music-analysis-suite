@@ -1,0 +1,30 @@
+seed: 42
+
+paths:
+  data_raw: data/raw
+  data_processed: data/processed
+  data_features: data/features
+  models_dir: models
+  docs_dir: docs
+
+audio:
+  sample_rate: 22050
+  clip_seconds: 30
+  segment_seconds: 3
+  segment_hop_seconds: 1.5
+
+genres:
+  - blues
+  - classical
+  - country
+  - disco
+  - hiphop
+  - jazz
+  - metal
+  - pop
+  - reggae
+  - rock
+
+mood:
+  scale_min: 1
+  scale_max: 9
