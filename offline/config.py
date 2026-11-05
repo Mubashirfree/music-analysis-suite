@@ -21,3 +21,7 @@ DOCS_DIR=PROJECT_ROOT / CFG["paths"]["docs_dir"]
 SEED=CFG["seed"]
 SAMPLE_RATE=CFG["audio"]["sample_rate"]
 GENRES=CFG["genres"]
+
+SEGMENT_SECONDS = CFG["audio"]["segment_seconds"]
+SEGMENT_HOP_SECONDS = CFG["audio"]["segment_hop_seconds"]
+CLIP_SECONDS = CFG["audio"]["clip_seconds"]
