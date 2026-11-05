@@ -1,4 +1,5 @@
 import pandas as pd
+import numpy as np
 
 from offline.data.deam import load_deam
 from offline.data.pmemo import load_pmemo
@@ -9,6 +10,20 @@ SCALES = {
     "pmemo": (0.0, 1.0),
 }
 
+MOOD_CLASSES = ["Happy/Excited", "Angry/Tense", "Sad/Depressed", "Calm/Relaxed"]
+
+
+def add_mood_category(df: pd.DataFrame, mid: float = 0.5) -> pd.DataFrame:
+    """Add a categorical mood label from the valence-arousal quadrant (0-1 scale)."""
+    v = df["valence_mean"] >= mid
+    a = df["arousal_mean"] >= mid
+    out = df.copy()
+    out["mood"] = np.select(
+        [v & a, ~v & a, ~v & ~a, v & ~a],
+        MOOD_CLASSES,
+        default="Unknown",
+    )
+    return out
 
 def normalise(df: pd.DataFrame, dataset: str) -> pd.DataFrame:
     """Rescale valence and arousal of one dataset to the common range 0-1."""

@@ -27,7 +27,7 @@ python -m offline.check_env
 ## Progress
 
 - [x] P1.1 Repository structure, environment, config
-- [ ] P1.2 Dataset acquisition
+- [x] P1.2 Dataset acquisition
 - [ ] P1.3 Audio preprocessing
 - [ ] P1.4 Feature extraction
 - [ ] P1.5 Random Forest baseline
