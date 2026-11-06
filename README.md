@@ -28,9 +28,9 @@ python -m offline.check_env
 
 - [x] P1.1 Repository structure, environment, config
 - [x] P1.2 Dataset acquisition
-- [ ] P1.3 Audio preprocessing
-- [ ] P1.4 Feature extraction
-- [ ] P1.5 Random Forest baseline
+- [x] P1.3 Audio preprocessing
+- [x] P1.4 Feature extraction
+- [x] P1.5 Random Forest baseline
 - [ ] P1.6 CNN with ECA attention (genre)
 - [ ] P1.7 Multitask mood model
 - [ ] P1.8 Cross-dataset / cross-lingual split
