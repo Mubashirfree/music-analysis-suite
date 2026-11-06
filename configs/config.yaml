@@ -28,3 +28,10 @@ genres:
 mood:
   scale_min: 1
   scale_max: 9
+
+features:
+  n_mels: 128
+  n_fft: 2048
+  hop_length: 512
+  mert_model: m-a-p/MERT-v1-95M
+  mert_sample_rate: 24000

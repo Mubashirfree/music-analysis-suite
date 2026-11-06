@@ -12,3 +12,7 @@ jupyter
 kaggle
 pytest
 
+torch
+torchaudio
+transformers
+nnAudio

@@ -1,0 +1,24 @@
+{
+  "chroma_only": {
+    "n_features": 24,
+    "val": {
+      "accuracy": 0.4933,
+      "macro_f1": 0.4856
+    },
+    "test": {
+      "accuracy": 0.4733,
+      "macro_f1": 0.4628
+    }
+  },
+  "chroma_plus_handcrafted": {
+    "n_features": 73,
+    "val": {
+      "accuracy": 0.7067,
+      "macro_f1": 0.7001
+    },
+    "test": {
+      "accuracy": 0.6867,
+      "macro_f1": 0.6833
+    }
+  }
+}
