@@ -42,6 +42,9 @@ def plot_splits(genre: pd.DataFrame, mood: pd.DataFrame) -> None:
     axes[1].set_title("Mood: songs per split (dataset / class)")
     for ax in axes:
         ax.tick_params(axis="x", rotation=60)
+    
+    axes[0].legend(loc="lower right")
+    axes[1].set_xlabel("dataset / mood class")
     plt.tight_layout()
     plt.savefig(FIG_DIR / "07_split_sizes.png", dpi=150)
     plt.close()
