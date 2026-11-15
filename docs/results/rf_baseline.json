@@ -11,14 +11,14 @@
     }
   },
   "chroma_plus_handcrafted": {
-    "n_features": 73,
+    "n_features": 44,
     "val": {
-      "accuracy": 0.7067,
-      "macro_f1": 0.7001
+      "accuracy": 0.6533,
+      "macro_f1": 0.6494
     },
     "test": {
-      "accuracy": 0.6867,
-      "macro_f1": 0.6833
+      "accuracy": 0.6667,
+      "macro_f1": 0.6641
     }
   }
 }

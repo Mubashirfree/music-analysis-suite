@@ -24,7 +24,7 @@ def test_logmel_shape():
     out = logmel_segments(_tone())
     assert out.shape[0] == 19 and out.shape[1] == N_MELS
 
-def test_handcrafted_has_49_values():
+def test_handcrafted_has_20_values():
     out = handcrafted_summary(_tone(seconds=10))
-    assert out.shape == (49,)
+    assert out.shape == (20,)
     assert np.isfinite(out).all()
