@@ -1,0 +1,32 @@
+{
+  "eca_x3": {
+    "val": {
+      "song_accuracy": 0.94,
+      "song_macro_f1": 0.9395
+    },
+    "test": {
+      "song_accuracy": 0.8933,
+      "song_macro_f1": 0.8926
+    }
+  },
+  "noeca_x3": {
+    "val": {
+      "song_accuracy": 0.92,
+      "song_macro_f1": 0.9186
+    },
+    "test": {
+      "song_accuracy": 0.9,
+      "song_macro_f1": 0.9003
+    }
+  },
+  "all_6": {
+    "val": {
+      "song_accuracy": 0.94,
+      "song_macro_f1": 0.9395
+    },
+    "test": {
+      "song_accuracy": 0.8933,
+      "song_macro_f1": 0.8932
+    }
+  }
+}

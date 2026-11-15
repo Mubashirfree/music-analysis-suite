@@ -31,7 +31,7 @@ python -m offline.check_env
 - [x] P1.3 Audio preprocessing
 - [x] P1.4 Feature extraction
 - [x] P1.5 Random Forest baseline
-- [ ] P1.6 CNN with ECA attention (genre)
+- [x] P1.6 CNN with ECA attention (genre)
 - [ ] P1.7 Multitask mood model
 - [ ] P1.8 Cross-dataset / cross-lingual split
 - [ ] P1.9 Model export
