@@ -1,0 +1,66 @@
+{
+  "eca": {
+    "runs": 3,
+    "song_accuracy": {
+      "values": [
+        0.8867,
+        0.8933,
+        0.8867
+      ],
+      "mean": 0.8889,
+      "std": 0.0031
+    },
+    "song_macro_f1": {
+      "values": [
+        0.8861,
+        0.8916,
+        0.8857
+      ],
+      "mean": 0.8878,
+      "std": 0.0027
+    },
+    "segment_accuracy": {
+      "values": [
+        0.858,
+        0.8647,
+        0.8556
+      ],
+      "mean": 0.8594,
+      "std": 0.0039
+    }
+  },
+  "noeca": {
+    "runs": 3,
+    "song_accuracy": {
+      "values": [
+        0.88,
+        0.9,
+        0.9067
+      ],
+      "mean": 0.8956,
+      "std": 0.0113
+    },
+    "song_macro_f1": {
+      "values": [
+        0.8794,
+        0.9,
+        0.9056
+      ],
+      "mean": 0.895,
+      "std": 0.0113
+    },
+    "segment_accuracy": {
+      "values": [
+        0.8531,
+        0.8517,
+        0.8549
+      ],
+      "mean": 0.8532,
+      "std": 0.0013
+    }
+  },
+  "random_forest_aligned": {
+    "accuracy": 0.6667,
+    "macro_f1": 0.6641
+  }
+}

@@ -1,0 +1,8 @@
+{
+  "song_accuracy": 0.8867,
+  "song_macro_f1": 0.8857,
+  "segment_accuracy": 0.8556,
+  "best_val_song_accuracy": 0.94,
+  "parameters": 1175226,
+  "seed": 2
+}
