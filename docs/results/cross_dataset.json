@@ -1,0 +1,806 @@
+{
+  "deam_to_pmemo": {
+    "train_mean": [
+      {
+        "in_domain": {
+          "n": 270,
+          "regression": {
+            "valence": {
+              "rmse": 0.1469,
+              "pearson_r": 0.0,
+              "r2": -0.0064
+            },
+            "arousal": {
+              "rmse": 0.1596,
+              "pearson_r": 0.0,
+              "r2": -0.0029
+            }
+          },
+          "classification": {
+            "accuracy": 0.3815,
+            "macro_f1": 0.1381
+          }
+        },
+        "in_domain_valence_bias": 0.0117,
+        "cross": {
+          "n": 767,
+          "regression": {
+            "valence": {
+              "rmse": 0.194,
+              "pearson_r": 0.0,
+              "r2": -0.4356
+            },
+            "arousal": {
+              "rmse": 0.2363,
+              "pearson_r": 0.0,
+              "r2": -0.6368
+            }
+          },
+          "classification": {
+            "accuracy": 0.1721,
+            "macro_f1": 0.0734
+          }
+        },
+        "cross_valence_bias": -0.1068
+      }
+    ],
+    "ridge": [
+      {
+        "in_domain": {
+          "n": 270,
+          "regression": {
+            "valence": {
+              "rmse": 0.1018,
+              "pearson_r": 0.7267,
+              "r2": 0.5173
+            },
+            "arousal": {
+              "rmse": 0.0974,
+              "pearson_r": 0.7921,
+              "r2": 0.6264
+            }
+          },
+          "classification": {
+            "accuracy": 0.6704,
+            "macro_f1": 0.459
+          }
+        },
+        "in_domain_valence_bias": 0.0151,
+        "cross": {
+          "n": 767,
+          "regression": {
+            "valence": {
+              "rmse": 0.1273,
+              "pearson_r": 0.6634,
+              "r2": 0.3811
+            },
+            "arousal": {
+              "rmse": 0.1505,
+              "pearson_r": 0.733,
+              "r2": 0.3362
+            }
+          },
+          "classification": {
+            "accuracy": 0.7014,
+            "macro_f1": 0.4426
+          }
+        },
+        "cross_valence_bias": -0.0309
+      }
+    ],
+    "mlp_multitask": [
+      {
+        "in_domain": {
+          "n": 270,
+          "regression": {
+            "valence": {
+              "rmse": 0.1005,
+              "pearson_r": 0.7321,
+              "r2": 0.5292
+            },
+            "arousal": {
+              "rmse": 0.1012,
+              "pearson_r": 0.7753,
+              "r2": 0.5968
+            }
+          },
+          "classification": {
+            "accuracy": 0.6481,
+            "macro_f1": 0.5282
+          }
+        },
+        "in_domain_valence_bias": 0.0119,
+        "cross": {
+          "n": 767,
+          "regression": {
+            "valence": {
+              "rmse": 0.1355,
+              "pearson_r": 0.6241,
+              "r2": 0.2991
+            },
+            "arousal": {
+              "rmse": 0.1588,
+              "pearson_r": 0.7505,
+              "r2": 0.261
+            }
+          },
+          "classification": {
+            "accuracy": 0.6714,
+            "macro_f1": 0.4408
+          }
+        },
+        "cross_valence_bias": -0.0431
+      },
+      {
+        "in_domain": {
+          "n": 270,
+          "regression": {
+            "valence": {
+              "rmse": 0.1023,
+              "pearson_r": 0.7277,
+              "r2": 0.5116
+            },
+            "arousal": {
+              "rmse": 0.1023,
+              "pearson_r": 0.7685,
+              "r2": 0.5879
+            }
+          },
+          "classification": {
+            "accuracy": 0.6333,
+            "macro_f1": 0.4841
+          }
+        },
+        "in_domain_valence_bias": 0.0176,
+        "cross": {
+          "n": 767,
+          "regression": {
+            "valence": {
+              "rmse": 0.1434,
+              "pearson_r": 0.5849,
+              "r2": 0.2154
+            },
+            "arousal": {
+              "rmse": 0.1487,
+              "pearson_r": 0.7496,
+              "r2": 0.3521
+            }
+          },
+          "classification": {
+            "accuracy": 0.6545,
+            "macro_f1": 0.4003
+          }
+        },
+        "cross_valence_bias": -0.0481
+      },
+      {
+        "in_domain": {
+          "n": 270,
+          "regression": {
+            "valence": {
+              "rmse": 0.1006,
+              "pearson_r": 0.7345,
+              "r2": 0.5285
+            },
+            "arousal": {
+              "rmse": 0.0977,
+              "pearson_r": 0.7924,
+              "r2": 0.624
+            }
+          },
+          "classification": {
+            "accuracy": 0.6259,
+            "macro_f1": 0.5273
+          }
+        },
+        "in_domain_valence_bias": 0.0124,
+        "cross": {
+          "n": 767,
+          "regression": {
+            "valence": {
+              "rmse": 0.1354,
+              "pearson_r": 0.6384,
+              "r2": 0.3008
+            },
+            "arousal": {
+              "rmse": 0.1375,
+              "pearson_r": 0.7666,
+              "r2": 0.4456
+            }
+          },
+          "classification": {
+            "accuracy": 0.6728,
+            "macro_f1": 0.4685
+          }
+        },
+        "cross_valence_bias": -0.0443
+      }
+    ],
+    "mlp_reg_only": [
+      {
+        "in_domain": {
+          "n": 270,
+          "regression": {
+            "valence": {
+              "rmse": 0.1051,
+              "pearson_r": 0.7013,
+              "r2": 0.4849
+            },
+            "arousal": {
+              "rmse": 0.1013,
+              "pearson_r": 0.7725,
+              "r2": 0.5957
+            }
+          },
+          "classification": {
+            "accuracy": 0.6593,
+            "macro_f1": 0.4818
+          }
+        },
+        "in_domain_valence_bias": 0.012,
+        "cross": {
+          "n": 767,
+          "regression": {
+            "valence": {
+              "rmse": 0.1275,
+              "pearson_r": 0.6533,
+              "r2": 0.3797
+            },
+            "arousal": {
+              "rmse": 0.1464,
+              "pearson_r": 0.72,
+              "r2": 0.3717
+            }
+          },
+          "classification": {
+            "accuracy": 0.7066,
+            "macro_f1": 0.426
+          }
+        },
+        "cross_valence_bias": -0.0263
+      },
+      {
+        "in_domain": {
+          "n": 270,
+          "regression": {
+            "valence": {
+              "rmse": 0.1041,
+              "pearson_r": 0.7148,
+              "r2": 0.4945
+            },
+            "arousal": {
+              "rmse": 0.0993,
+              "pearson_r": 0.7839,
+              "r2": 0.6115
+            }
+          },
+          "classification": {
+            "accuracy": 0.6926,
+            "macro_f1": 0.517
+          }
+        },
+        "in_domain_valence_bias": 0.016,
+        "cross": {
+          "n": 767,
+          "regression": {
+            "valence": {
+              "rmse": 0.1305,
+              "pearson_r": 0.683,
+              "r2": 0.3504
+            },
+            "arousal": {
+              "rmse": 0.1496,
+              "pearson_r": 0.7518,
+              "r2": 0.3443
+            }
+          },
+          "classification": {
+            "accuracy": 0.7288,
+            "macro_f1": 0.4574
+          }
+        },
+        "cross_valence_bias": -0.0383
+      },
+      {
+        "in_domain": {
+          "n": 270,
+          "regression": {
+            "valence": {
+              "rmse": 0.1031,
+              "pearson_r": 0.7255,
+              "r2": 0.5042
+            },
+            "arousal": {
+              "rmse": 0.1007,
+              "pearson_r": 0.7754,
+              "r2": 0.6003
+            }
+          },
+          "classification": {
+            "accuracy": 0.6667,
+            "macro_f1": 0.4988
+          }
+        },
+        "in_domain_valence_bias": 0.0215,
+        "cross": {
+          "n": 767,
+          "regression": {
+            "valence": {
+              "rmse": 0.128,
+              "pearson_r": 0.6741,
+              "r2": 0.3751
+            },
+            "arousal": {
+              "rmse": 0.1478,
+              "pearson_r": 0.7395,
+              "r2": 0.3597
+            }
+          },
+          "classification": {
+            "accuracy": 0.7171,
+            "macro_f1": 0.4715
+          }
+        },
+        "cross_valence_bias": -0.0383
+      }
+    ],
+    "mlp_cls_only": [
+      {
+        "in_domain": {
+          "n": 270,
+          "classification": {
+            "accuracy": 0.6259,
+            "macro_f1": 0.5089
+          }
+        },
+        "in_domain_valence_bias": null,
+        "cross": {
+          "n": 767,
+          "classification": {
+            "accuracy": 0.6936,
+            "macro_f1": 0.5148
+          }
+        },
+        "cross_valence_bias": null
+      },
+      {
+        "in_domain": {
+          "n": 270,
+          "classification": {
+            "accuracy": 0.5852,
+            "macro_f1": 0.4706
+          }
+        },
+        "in_domain_valence_bias": null,
+        "cross": {
+          "n": 767,
+          "classification": {
+            "accuracy": 0.6871,
+            "macro_f1": 0.4646
+          }
+        },
+        "cross_valence_bias": null
+      },
+      {
+        "in_domain": {
+          "n": 270,
+          "classification": {
+            "accuracy": 0.6444,
+            "macro_f1": 0.5487
+          }
+        },
+        "in_domain_valence_bias": null,
+        "cross": {
+          "n": 767,
+          "classification": {
+            "accuracy": 0.6245,
+            "macro_f1": 0.4529
+          }
+        },
+        "cross_valence_bias": null
+      }
+    ]
+  },
+  "pmemo_to_deam": {
+    "train_mean": [
+      {
+        "in_domain": {
+          "n": 116,
+          "regression": {
+            "valence": {
+              "rmse": 0.1656,
+              "pearson_r": 0.0,
+              "r2": -0.0004
+            },
+            "arousal": {
+              "rmse": 0.1938,
+              "pearson_r": 0.0,
+              "r2": -0.0178
+            }
+          },
+          "classification": {
+            "accuracy": 0.6552,
+            "macro_f1": 0.1979
+          }
+        },
+        "in_domain_valence_bias": 0.0032,
+        "cross": {
+          "n": 1802,
+          "regression": {
+            "valence": {
+              "rmse": 0.1831,
+              "pearson_r": 0.0,
+              "r2": -0.5563
+            },
+            "arousal": {
+              "rmse": 0.2187,
+              "pearson_r": 0.0,
+              "r2": -0.8622
+            }
+          },
+          "classification": {
+            "accuracy": 0.359,
+            "macro_f1": 0.1321
+          }
+        },
+        "cross_valence_bias": 0.1095
+      }
+    ],
+    "ridge": [
+      {
+        "in_domain": {
+          "n": 116,
+          "regression": {
+            "valence": {
+              "rmse": 0.106,
+              "pearson_r": 0.7685,
+              "r2": 0.5899
+            },
+            "arousal": {
+              "rmse": 0.1036,
+              "pearson_r": 0.8429,
+              "r2": 0.7088
+            }
+          },
+          "classification": {
+            "accuracy": 0.7586,
+            "macro_f1": 0.5795
+          }
+        },
+        "in_domain_valence_bias": -0.0021,
+        "cross": {
+          "n": 1802,
+          "regression": {
+            "valence": {
+              "rmse": 0.1162,
+              "pearson_r": 0.6204,
+              "r2": 0.3726
+            },
+            "arousal": {
+              "rmse": 0.1337,
+              "pearson_r": 0.6929,
+              "r2": 0.304
+            }
+          },
+          "classification": {
+            "accuracy": 0.5977,
+            "macro_f1": 0.4591
+          }
+        },
+        "cross_valence_bias": 0.0134
+      }
+    ],
+    "mlp_multitask": [
+      {
+        "in_domain": {
+          "n": 116,
+          "regression": {
+            "valence": {
+              "rmse": 0.1136,
+              "pearson_r": 0.7361,
+              "r2": 0.5292
+            },
+            "arousal": {
+              "rmse": 0.1091,
+              "pearson_r": 0.8247,
+              "r2": 0.6775
+            }
+          },
+          "classification": {
+            "accuracy": 0.6466,
+            "macro_f1": 0.5127
+          }
+        },
+        "in_domain_valence_bias": -0.0169,
+        "cross": {
+          "n": 1802,
+          "regression": {
+            "valence": {
+              "rmse": 0.1232,
+              "pearson_r": 0.5547,
+              "r2": 0.2947
+            },
+            "arousal": {
+              "rmse": 0.1342,
+              "pearson_r": 0.6592,
+              "r2": 0.2981
+            }
+          },
+          "classification": {
+            "accuracy": 0.4134,
+            "macro_f1": 0.3689
+          }
+        },
+        "cross_valence_bias": 0.0148
+      },
+      {
+        "in_domain": {
+          "n": 116,
+          "regression": {
+            "valence": {
+              "rmse": 0.1097,
+              "pearson_r": 0.7493,
+              "r2": 0.561
+            },
+            "arousal": {
+              "rmse": 0.1111,
+              "pearson_r": 0.8167,
+              "r2": 0.6652
+            }
+          },
+          "classification": {
+            "accuracy": 0.6207,
+            "macro_f1": 0.4742
+          }
+        },
+        "in_domain_valence_bias": -0.0035,
+        "cross": {
+          "n": 1802,
+          "regression": {
+            "valence": {
+              "rmse": 0.1187,
+              "pearson_r": 0.6022,
+              "r2": 0.3458
+            },
+            "arousal": {
+              "rmse": 0.133,
+              "pearson_r": 0.6732,
+              "r2": 0.3114
+            }
+          },
+          "classification": {
+            "accuracy": 0.4517,
+            "macro_f1": 0.401
+          }
+        },
+        "cross_valence_bias": 0.0162
+      },
+      {
+        "in_domain": {
+          "n": 116,
+          "regression": {
+            "valence": {
+              "rmse": 0.1106,
+              "pearson_r": 0.7447,
+              "r2": 0.5543
+            },
+            "arousal": {
+              "rmse": 0.115,
+              "pearson_r": 0.8012,
+              "r2": 0.6414
+            }
+          },
+          "classification": {
+            "accuracy": 0.6724,
+            "macro_f1": 0.4993
+          }
+        },
+        "in_domain_valence_bias": 0.0007,
+        "cross": {
+          "n": 1802,
+          "regression": {
+            "valence": {
+              "rmse": 0.135,
+              "pearson_r": 0.5215,
+              "r2": 0.1534
+            },
+            "arousal": {
+              "rmse": 0.1289,
+              "pearson_r": 0.6753,
+              "r2": 0.3527
+            }
+          },
+          "classification": {
+            "accuracy": 0.4345,
+            "macro_f1": 0.3918
+          }
+        },
+        "cross_valence_bias": 0.0492
+      }
+    ],
+    "mlp_reg_only": [
+      {
+        "in_domain": {
+          "n": 116,
+          "regression": {
+            "valence": {
+              "rmse": 0.1091,
+              "pearson_r": 0.7583,
+              "r2": 0.5658
+            },
+            "arousal": {
+              "rmse": 0.1113,
+              "pearson_r": 0.8159,
+              "r2": 0.6639
+            }
+          },
+          "classification": {
+            "accuracy": 0.75,
+            "macro_f1": 0.5573
+          }
+        },
+        "in_domain_valence_bias": -0.0159,
+        "cross": {
+          "n": 1802,
+          "regression": {
+            "valence": {
+              "rmse": 0.1193,
+              "pearson_r": 0.6043,
+              "r2": 0.3388
+            },
+            "arousal": {
+              "rmse": 0.1321,
+              "pearson_r": 0.677,
+              "r2": 0.3206
+            }
+          },
+          "classification": {
+            "accuracy": 0.601,
+            "macro_f1": 0.4389
+          }
+        },
+        "cross_valence_bias": 0.0083
+      },
+      {
+        "in_domain": {
+          "n": 116,
+          "regression": {
+            "valence": {
+              "rmse": 0.1118,
+              "pearson_r": 0.7434,
+              "r2": 0.5445
+            },
+            "arousal": {
+              "rmse": 0.1113,
+              "pearson_r": 0.8151,
+              "r2": 0.6642
+            }
+          },
+          "classification": {
+            "accuracy": 0.7241,
+            "macro_f1": 0.5542
+          }
+        },
+        "in_domain_valence_bias": -0.01,
+        "cross": {
+          "n": 1802,
+          "regression": {
+            "valence": {
+              "rmse": 0.1235,
+              "pearson_r": 0.5511,
+              "r2": 0.2912
+            },
+            "arousal": {
+              "rmse": 0.1335,
+              "pearson_r": 0.6832,
+              "r2": 0.3057
+            }
+          },
+          "classification": {
+            "accuracy": 0.5688,
+            "macro_f1": 0.4338
+          }
+        },
+        "cross_valence_bias": 0.0099
+      },
+      {
+        "in_domain": {
+          "n": 116,
+          "regression": {
+            "valence": {
+              "rmse": 0.113,
+              "pearson_r": 0.7313,
+              "r2": 0.5341
+            },
+            "arousal": {
+              "rmse": 0.1122,
+              "pearson_r": 0.8122,
+              "r2": 0.6585
+            }
+          },
+          "classification": {
+            "accuracy": 0.75,
+            "macro_f1": 0.601
+          }
+        },
+        "in_domain_valence_bias": -0.0037,
+        "cross": {
+          "n": 1802,
+          "regression": {
+            "valence": {
+              "rmse": 0.1255,
+              "pearson_r": 0.5347,
+              "r2": 0.2684
+            },
+            "arousal": {
+              "rmse": 0.1384,
+              "pearson_r": 0.6781,
+              "r2": 0.2539
+            }
+          },
+          "classification": {
+            "accuracy": 0.5671,
+            "macro_f1": 0.4438
+          }
+        },
+        "cross_valence_bias": 0.0131
+      }
+    ],
+    "mlp_cls_only": [
+      {
+        "in_domain": {
+          "n": 116,
+          "classification": {
+            "accuracy": 0.6552,
+            "macro_f1": 0.4417
+          }
+        },
+        "in_domain_valence_bias": null,
+        "cross": {
+          "n": 1802,
+          "classification": {
+            "accuracy": 0.4806,
+            "macro_f1": 0.3944
+          }
+        },
+        "cross_valence_bias": null
+      },
+      {
+        "in_domain": {
+          "n": 116,
+          "classification": {
+            "accuracy": 0.6379,
+            "macro_f1": 0.4241
+          }
+        },
+        "in_domain_valence_bias": null,
+        "cross": {
+          "n": 1802,
+          "classification": {
+            "accuracy": 0.4717,
+            "macro_f1": 0.3952
+          }
+        },
+        "cross_valence_bias": null
+      },
+      {
+        "in_domain": {
+          "n": 116,
+          "classification": {
+            "accuracy": 0.6638,
+            "macro_f1": 0.4675
+          }
+        },
+        "in_domain_valence_bias": null,
+        "cross": {
+          "n": 1802,
+          "classification": {
+            "accuracy": 0.4745,
+            "macro_f1": 0.4006
+          }
+        },
+        "cross_valence_bias": null
+      }
+    ]
+  }
+}

@@ -1,0 +1,363 @@
+{
+  "ridge_alpha": 1000.0,
+  "train_mean": {
+    "val": {
+      "all": {
+        "n": 386,
+        "regression": {
+          "valence": {
+            "rmse": 0.1561,
+            "pearson_r": 0.0,
+            "r2": -0.0
+          },
+          "arousal": {
+            "rmse": 0.1824,
+            "pearson_r": 0.0,
+            "r2": -0.0005
+          }
+        },
+        "classification": {
+          "accuracy": 0.4482,
+          "macro_f1": 0.1547
+        }
+      },
+      "deam": {
+        "n": 270,
+        "regression": {
+          "valence": {
+            "rmse": 0.1452,
+            "pearson_r": 0.0,
+            "r2": -0.0503
+          },
+          "arousal": {
+            "rmse": 0.1657,
+            "pearson_r": 0.0,
+            "r2": -0.067
+          }
+        },
+        "classification": {
+          "accuracy": 0.3593,
+          "macro_f1": 0.1322
+        }
+      },
+      "pmemo": {
+        "n": 116,
+        "regression": {
+          "valence": {
+            "rmse": 0.1791,
+            "pearson_r": 0.0,
+            "r2": -0.1996
+          },
+          "arousal": {
+            "rmse": 0.2162,
+            "pearson_r": NaN,
+            "r2": -0.3518
+          }
+        },
+        "classification": {
+          "accuracy": 0.6552,
+          "macro_f1": 0.1979
+        }
+      }
+    },
+    "test": {
+      "all": {
+        "n": 386,
+        "regression": {
+          "valence": {
+            "rmse": 0.1618,
+            "pearson_r": 0.0,
+            "r2": -0.003
+          },
+          "arousal": {
+            "rmse": 0.178,
+            "pearson_r": 0.0,
+            "r2": -0.0
+          }
+        },
+        "classification": {
+          "accuracy": 0.4482,
+          "macro_f1": 0.1547
+        }
+      },
+      "deam": {
+        "n": 270,
+        "regression": {
+          "valence": {
+            "rmse": 0.1529,
+            "pearson_r": 0.0,
+            "r2": -0.0895
+          },
+          "arousal": {
+            "rmse": 0.1634,
+            "pearson_r": 0.0,
+            "r2": -0.0516
+          }
+        },
+        "classification": {
+          "accuracy": 0.3593,
+          "macro_f1": 0.1322
+        }
+      },
+      "pmemo": {
+        "n": 116,
+        "regression": {
+          "valence": {
+            "rmse": 0.1807,
+            "pearson_r": 0.0,
+            "r2": -0.1912
+          },
+          "arousal": {
+            "rmse": 0.2081,
+            "pearson_r": NaN,
+            "r2": -0.1741
+          }
+        },
+        "classification": {
+          "accuracy": 0.6552,
+          "macro_f1": 0.1979
+        }
+      }
+    }
+  },
+  "ridge": {
+    "val": {
+      "all": {
+        "n": 386,
+        "regression": {
+          "valence": {
+            "rmse": 0.1064,
+            "pearson_r": 0.7349,
+            "r2": 0.5358
+          },
+          "arousal": {
+            "rmse": 0.1022,
+            "pearson_r": 0.8283,
+            "r2": 0.6859
+          }
+        },
+        "classification": {
+          "accuracy": 0.6917,
+          "macro_f1": 0.4912
+        }
+      },
+      "deam": {
+        "n": 270,
+        "regression": {
+          "valence": {
+            "rmse": 0.1045,
+            "pearson_r": 0.6844,
+            "r2": 0.4555
+          },
+          "arousal": {
+            "rmse": 0.1022,
+            "pearson_r": 0.7754,
+            "r2": 0.5942
+          }
+        },
+        "classification": {
+          "accuracy": 0.6407,
+          "macro_f1": 0.4331
+        }
+      },
+      "pmemo": {
+        "n": 116,
+        "regression": {
+          "valence": {
+            "rmse": 0.1105,
+            "pearson_r": 0.7368,
+            "r2": 0.5429
+          },
+          "arousal": {
+            "rmse": 0.1022,
+            "pearson_r": 0.8419,
+            "r2": 0.6982
+          }
+        },
+        "classification": {
+          "accuracy": 0.8103,
+          "macro_f1": 0.6251
+        }
+      }
+    },
+    "test": {
+      "all": {
+        "n": 386,
+        "regression": {
+          "valence": {
+            "rmse": 0.1011,
+            "pearson_r": 0.7846,
+            "r2": 0.6078
+          },
+          "arousal": {
+            "rmse": 0.1017,
+            "pearson_r": 0.8211,
+            "r2": 0.6737
+          }
+        },
+        "classification": {
+          "accuracy": 0.7176,
+          "macro_f1": 0.5383
+        }
+      },
+      "deam": {
+        "n": 270,
+        "regression": {
+          "valence": {
+            "rmse": 0.1,
+            "pearson_r": 0.7429,
+            "r2": 0.5334
+          },
+          "arousal": {
+            "rmse": 0.0983,
+            "pearson_r": 0.7884,
+            "r2": 0.6196
+          }
+        },
+        "classification": {
+          "accuracy": 0.6926,
+          "macro_f1": 0.5047
+        }
+      },
+      "pmemo": {
+        "n": 116,
+        "regression": {
+          "valence": {
+            "rmse": 0.1037,
+            "pearson_r": 0.7841,
+            "r2": 0.6081
+          },
+          "arousal": {
+            "rmse": 0.1092,
+            "pearson_r": 0.8352,
+            "r2": 0.6767
+          }
+        },
+        "classification": {
+          "accuracy": 0.7759,
+          "macro_f1": 0.5888
+        }
+      }
+    }
+  },
+  "random_forest": {
+    "val": {
+      "all": {
+        "n": 386,
+        "regression": {
+          "valence": {
+            "rmse": 0.1129,
+            "pearson_r": 0.6916,
+            "r2": 0.4768
+          },
+          "arousal": {
+            "rmse": 0.1165,
+            "pearson_r": 0.7727,
+            "r2": 0.5917
+          }
+        },
+        "classification": {
+          "accuracy": 0.6684,
+          "macro_f1": 0.4231
+        }
+      },
+      "deam": {
+        "n": 270,
+        "regression": {
+          "valence": {
+            "rmse": 0.1078,
+            "pearson_r": 0.6509,
+            "r2": 0.4208
+          },
+          "arousal": {
+            "rmse": 0.1153,
+            "pearson_r": 0.697,
+            "r2": 0.4832
+          }
+        },
+        "classification": {
+          "accuracy": 0.637,
+          "macro_f1": 0.403
+        }
+      },
+      "pmemo": {
+        "n": 116,
+        "regression": {
+          "valence": {
+            "rmse": 0.124,
+            "pearson_r": 0.6579,
+            "r2": 0.4244
+          },
+          "arousal": {
+            "rmse": 0.1192,
+            "pearson_r": 0.7892,
+            "r2": 0.589
+          }
+        },
+        "classification": {
+          "accuracy": 0.7414,
+          "macro_f1": 0.4309
+        }
+      }
+    },
+    "test": {
+      "all": {
+        "n": 386,
+        "regression": {
+          "valence": {
+            "rmse": 0.1105,
+            "pearson_r": 0.7424,
+            "r2": 0.5316
+          },
+          "arousal": {
+            "rmse": 0.1149,
+            "pearson_r": 0.7667,
+            "r2": 0.5832
+          }
+        },
+        "classification": {
+          "accuracy": 0.6865,
+          "macro_f1": 0.459
+        }
+      },
+      "deam": {
+        "n": 270,
+        "regression": {
+          "valence": {
+            "rmse": 0.1075,
+            "pearson_r": 0.7026,
+            "r2": 0.4614
+          },
+          "arousal": {
+            "rmse": 0.1149,
+            "pearson_r": 0.6935,
+            "r2": 0.4796
+          }
+        },
+        "classification": {
+          "accuracy": 0.6519,
+          "macro_f1": 0.4111
+        }
+      },
+      "pmemo": {
+        "n": 116,
+        "regression": {
+          "valence": {
+            "rmse": 0.1173,
+            "pearson_r": 0.7243,
+            "r2": 0.498
+          },
+          "arousal": {
+            "rmse": 0.1149,
+            "pearson_r": 0.8155,
+            "r2": 0.6421
+          }
+        },
+        "classification": {
+          "accuracy": 0.7672,
+          "macro_f1": 0.5527
+        }
+      }
+    }
+  }
+}

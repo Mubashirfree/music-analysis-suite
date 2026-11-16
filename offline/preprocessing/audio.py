@@ -19,14 +19,15 @@ def trim_silence(y: np.ndarray) -> np.ndarray:
     return trimmed
 
 
-def centre_crop(y: np.ndarray, max_seconds: float = CLIP_SECONDS) -> np.ndarray:
-    """Keep at most max_seconds, taken from the middle of the clip."""
+def centre_crop(y: np.ndarray, max_seconds: float | None = CLIP_SECONDS) -> np.ndarray:
+    """Keep at most max_seconds from the middle. None keeps the whole clip."""
+    if max_seconds is None:
+        return y
     max_len = int(max_seconds * SAMPLE_RATE)
     if len(y) <= max_len:
         return y
     start = (len(y) - max_len) // 2
     return y[start:start + max_len]
-
 
 def peak_normalise(y: np.ndarray) -> np.ndarray:
     """Scale so the loudest sample has magnitude 1."""
@@ -35,14 +36,14 @@ def peak_normalise(y: np.ndarray) -> np.ndarray:
     return y / np.max(np.abs(y))
 
 
-def preprocess(path: str) -> np.ndarray:
-    """Full pipeline for one file: load, trim, crop, normalise."""
+def preprocess(path: str, crop_seconds: float | None = CLIP_SECONDS, trim: bool = True) -> np.ndarray:
+    """Full pipeline for one file: load, optional trim, optional crop, normalise."""
     y = load_audio(path)
-    y = trim_silence(y)
-    y = centre_crop(y)
+    if trim:
+        y = trim_silence(y)
+    y = centre_crop(y, crop_seconds)
     y = peak_normalise(y)
     return y.astype(np.float32)
-
 
 def segment_starts(n_samples: int, seg_seconds: float = SEGMENT_SECONDS,
                    hop_seconds: float = SEGMENT_HOP_SECONDS) -> list[int]:

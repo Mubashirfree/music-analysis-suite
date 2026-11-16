@@ -29,6 +29,7 @@ def parse_args():
     p.add_argument("--lr", type=float, default=2e-3)
     p.add_argument("--patience", type=int, default=10)
     p.add_argument("--no-eca", action="store_true")
+    p.add_argument("--seed", type=int, default=SEED)
     return p.parse_args()
 
 
@@ -82,7 +83,7 @@ def plot_history(history: dict, tag: str) -> None:
 
 def main() -> None:
     args = parse_args()
-    set_seed(SEED)
+    set_seed(args.seed)
     FIG_DIR.mkdir(parents=True, exist_ok=True)
     RESULTS_DIR.mkdir(parents=True, exist_ok=True)
     MODELS_DIR.mkdir(parents=True, exist_ok=True)
@@ -90,6 +91,7 @@ def main() -> None:
     device = "cuda" if torch.cuda.is_available() else "cpu"
     use_amp = device == "cuda"
     tag = "noeca" if args.no_eca else "eca"
+    run = tag if args.seed == SEED else f"{tag}_s{args.seed}"
 
     train_ds = GenreSegments("train", augment=True)
     val_ds = GenreSegments("val", train_ds.mean, train_ds.std)
@@ -97,7 +99,7 @@ def main() -> None:
     train_loader = DataLoader(train_ds, batch_size=args.batch, shuffle=True, pin_memory=use_amp)
     val_loader = DataLoader(val_ds, batch_size=128, pin_memory=use_amp)
     test_loader = DataLoader(test_ds, batch_size=128, pin_memory=use_amp)
-    print(f"device {device} | model {tag} | segments train {len(train_ds)} "
+    print(f"device {device} | model {run} | segments train {len(train_ds)} "
           f"val {len(val_ds)} test {len(test_ds)}")
 
     model = GenreCNN(use_eca=not args.no_eca).to(device)
@@ -110,7 +112,7 @@ def main() -> None:
         optimizer, max_lr=args.lr, total_steps=args.epochs * len(train_loader))
     scaler = torch.amp.GradScaler("cuda", enabled=use_amp)
 
-    ckpt_path = MODELS_DIR / f"genre_cnn_{tag}.pt"
+    ckpt_path = MODELS_DIR / f"genre_cnn_{run}.pt"
     history = {"train_loss": [], "val_seg_acc": [], "val_song_acc": []}
     best, bad_epochs = -1.0, 0
 
@@ -149,7 +151,7 @@ def main() -> None:
                 print(f"early stop: no improvement for {args.patience} epochs")
                 break
 
-    plot_history(history, tag)
+    plot_history(history, run)
 
     ckpt = torch.load(ckpt_path, map_location=device)
     model.load_state_dict(ckpt["state_dict"])
@@ -158,20 +160,21 @@ def main() -> None:
     test_m["segment_accuracy"] = round(seg_acc, 4)
     test_m["best_val_song_accuracy"] = best
     test_m["parameters"] = n_params
+    test_m["seed"] = args.seed
 
     fig, ax = plt.subplots(figsize=(8, 7))
     ConfusionMatrixDisplay.from_predictions(
         test_ds.labels, test_pred, labels=list(range(len(GENRES))), display_labels=GENRES,
         xticks_rotation=45, cmap="Blues", colorbar=False, ax=ax)
-    ax.set_title(f"CNN ({tag}), test set, song-level voting")
+    ax.set_title(f"CNN ({run}), test set, song-level voting")
     plt.tight_layout()
-    plt.savefig(FIG_DIR / f"10_cnn_confusion_{tag}.png", dpi=150)
+    plt.savefig(FIG_DIR / f"10_cnn_confusion_{run}.png", dpi=150)
     plt.close()
 
-    with open(RESULTS_DIR / f"cnn_genre_{tag}.json", "w", encoding="utf-8") as f:
+    with open(RESULTS_DIR / f"cnn_genre_{run}.json", "w", encoding="utf-8") as f:
         json.dump(test_m, f, indent=2)
 
-    print(f"\nTEST ({tag}): song acc {test_m['song_accuracy']:.3f} | "
+    print(f"\nTEST ({run}): song acc {test_m['song_accuracy']:.3f} | "
           f"macro-F1 {test_m['song_macro_f1']:.3f} | segment acc {seg_acc:.3f}")
     rf_file = RESULTS_DIR / "rf_baseline.json"
     if rf_file.exists():

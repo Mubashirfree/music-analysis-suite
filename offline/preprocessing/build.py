@@ -2,14 +2,14 @@ import numpy as np
 import pandas as pd
 from tqdm import tqdm
 
-from offline.config import DATA_PROCESSED
+from offline.config import CLIP_SECONDS, DATA_PROCESSED
 from offline.data.gtzan import load_gtzan
 from offline.data.mood import add_mood_category, load_mood
 from offline.preprocessing.audio import preprocess, segment_starts
 from offline.preprocessing.splits import split_by_song
 
 
-def process_table(df: pd.DataFrame) -> pd.DataFrame:
+def process_table(df: pd.DataFrame, crop_seconds=CLIP_SECONDS, trim: bool = True) -> pd.DataFrame:
     """Preprocess every song once, save it as .npy, and record length and segment count."""
     rows = []
     failed = []
@@ -20,7 +20,7 @@ def process_table(df: pd.DataFrame) -> pd.DataFrame:
             if out_path.exists():
                 n_samples = len(np.load(out_path, mmap_mode="r"))
             else:
-                y = preprocess(rec["path"])
+                y = preprocess(rec["path"], crop_seconds, trim)
                 np.save(out_path, y.astype(np.float16))
                 n_samples = len(y)
         except Exception as e:
@@ -48,7 +48,7 @@ def build_mood() -> pd.DataFrame:
     df["uid"] = df["dataset"] + "_" + df["song_id"].astype(str)
     df["strata"] = df["dataset"] + "_" + df["mood"]
     df = split_by_song(df, strata="strata")
-    return process_table(df)
+    return process_table(df, crop_seconds=None, trim=False)
 
 
 def summarise(name: str, df: pd.DataFrame, group: str) -> None:
