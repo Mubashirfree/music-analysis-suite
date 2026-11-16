@@ -1,0 +1,8 @@
+docs/results/mood_multitask_h256_d0.3_wd0.01.json -0.1055
+docs/results/mood_multitask_h256_d0.3_wd0.1.json -0.1055
+docs/results/mood_multitask_h256_d0.5_wd0.01.json -0.1034
+docs/results/mood_multitask_h256_d0.5_wd0.1.json -0.1031
+docs/results/mood_multitask_h64_d0.3_wd0.01.json -0.1035
+docs/results/mood_multitask_h64_d0.3_wd0.1.json -0.1039
+docs/results/mood_multitask_h64_d0.5_wd0.01.json -0.1042
+docs/results/mood_multitask_h64_d0.5_wd0.1.json -0.1035

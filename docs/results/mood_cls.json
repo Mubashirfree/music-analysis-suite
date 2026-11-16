@@ -1,0 +1,63 @@
+{
+  "args": {
+    "tasks": "cls",
+    "epochs": 300,
+    "batch": 64,
+    "lr": 0.001,
+    "wd": 0.1,
+    "patience": 30,
+    "reg_weight": 10.0,
+    "cls_weight": 1.0,
+    "seed": 42,
+    "hidden": 256,
+    "dropout": 0.5,
+    "suffix": ""
+  },
+  "best_val_score": 0.5288,
+  "val": {
+    "all": {
+      "n": 386,
+      "classification": {
+        "accuracy": 0.6606,
+        "macro_f1": 0.5288
+      }
+    },
+    "deam": {
+      "n": 270,
+      "classification": {
+        "accuracy": 0.6259,
+        "macro_f1": 0.5012
+      }
+    },
+    "pmemo": {
+      "n": 116,
+      "classification": {
+        "accuracy": 0.7414,
+        "macro_f1": 0.5684
+      }
+    }
+  },
+  "test": {
+    "all": {
+      "n": 386,
+      "classification": {
+        "accuracy": 0.6166,
+        "macro_f1": 0.4815
+      }
+    },
+    "deam": {
+      "n": 270,
+      "classification": {
+        "accuracy": 0.6037,
+        "macro_f1": 0.4817
+      }
+    },
+    "pmemo": {
+      "n": 116,
+      "classification": {
+        "accuracy": 0.6466,
+        "macro_f1": 0.4609
+      }
+    }
+  }
+}

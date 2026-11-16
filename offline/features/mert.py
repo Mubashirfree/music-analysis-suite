@@ -10,6 +10,8 @@ from offline.preprocessing.audio import cut_segments
 
 FEATURE = "mert"
 BATCH = 8  # segments per forward pass; lower this if the GPU runs out of memory
+MERT_SEG_SECONDS = 5.0   # MERT was trained on 5 s crops (MERT paper p.6)
+MERT_HOP_SECONDS = 2.5   # 50 percent overlap, our choice
 
 
 def load_mert(device: str):
@@ -17,14 +19,14 @@ def load_mert(device: str):
     extractor = Wav2Vec2FeatureExtractor.from_pretrained(MERT_MODEL, trust_remote_code=True)
     model = AutoModel.from_pretrained(MERT_MODEL, trust_remote_code=True)
     model.config.output_hidden_states = True
-    model = model.to(device).eval()    
+    model = model.to(device).eval()
     return model, extractor
 
 
 @torch.no_grad()
 def embed_song(y: np.ndarray, model, extractor, device: str) -> np.ndarray:
-    """Return a (n_segments, 768) array: one MERT vector per 3 s segment."""
-    segs = torch.from_numpy(cut_segments(y))
+    """Return a (n_segments, 768) array: one MERT vector per 5 s window."""
+    segs = torch.from_numpy(cut_segments(y, MERT_SEG_SECONDS, MERT_HOP_SECONDS))
     segs = AF.resample(segs, SAMPLE_RATE, MERT_SAMPLE_RATE)
     vectors = []
     for i in range(0, len(segs), BATCH):
@@ -36,7 +38,7 @@ def embed_song(y: np.ndarray, model, extractor, device: str) -> np.ndarray:
         if hidden is None:
             raise RuntimeError("MERT returned no hidden states")
         layers = torch.stack(tuple(hidden)).mean(dim=0)   # average over all layers
-        vectors.append(layers.mean(dim=1).cpu())          # average over time       # average over time
+        vectors.append(layers.mean(dim=1).cpu())          # average over time
     return torch.cat(vectors).numpy().astype(np.float32)
 
 

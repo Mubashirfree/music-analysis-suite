@@ -1,0 +1,35 @@
+{
+  "all": {
+    "mean_loudness_db": -17.04,
+    "loudness_vs_label_r": [
+      0.416,
+      0.469
+    ],
+    "loudness_vs_residual_r": [
+      0.125,
+      0.127
+    ]
+  },
+  "deam": {
+    "mean_loudness_db": -19.21,
+    "loudness_vs_label_r": [
+      0.341,
+      0.315
+    ],
+    "loudness_vs_residual_r": [
+      0.159,
+      0.11
+    ]
+  },
+  "pmemo": {
+    "mean_loudness_db": -11.95,
+    "loudness_vs_label_r": [
+      0.172,
+      0.39
+    ],
+    "loudness_vs_residual_r": [
+      -0.01,
+      0.296
+    ]
+  }
+}

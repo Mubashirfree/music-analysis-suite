@@ -1,0 +1,135 @@
+{
+  "args": {
+    "tasks": "reg",
+    "epochs": 300,
+    "batch": 64,
+    "lr": 0.001,
+    "wd": 0.1,
+    "patience": 30,
+    "reg_weight": 10.0,
+    "cls_weight": 1.0,
+    "seed": 1,
+    "hidden": 256,
+    "dropout": 0.5,
+    "suffix": ""
+  },
+  "best_val_score": -0.1041,
+  "val": {
+    "all": {
+      "n": 386,
+      "regression": {
+        "valence": {
+          "rmse": 0.1057,
+          "pearson_r": 0.736,
+          "r2": 0.5415
+        },
+        "arousal": {
+          "rmse": 0.1024,
+          "pearson_r": 0.8288,
+          "r2": 0.6848
+        }
+      },
+      "classification": {
+        "accuracy": 0.7047,
+        "macro_f1": 0.4989
+      }
+    },
+    "deam": {
+      "n": 270,
+      "regression": {
+        "valence": {
+          "rmse": 0.103,
+          "pearson_r": 0.6869,
+          "r2": 0.4715
+        },
+        "arousal": {
+          "rmse": 0.1027,
+          "pearson_r": 0.7688,
+          "r2": 0.5904
+        }
+      },
+      "classification": {
+        "accuracy": 0.663,
+        "macro_f1": 0.4482
+      }
+    },
+    "pmemo": {
+      "n": 116,
+      "regression": {
+        "valence": {
+          "rmse": 0.1118,
+          "pearson_r": 0.7298,
+          "r2": 0.5321
+        },
+        "arousal": {
+          "rmse": 0.1016,
+          "pearson_r": 0.8411,
+          "r2": 0.7014
+        }
+      },
+      "classification": {
+        "accuracy": 0.8017,
+        "macro_f1": 0.6092
+      }
+    }
+  },
+  "test": {
+    "all": {
+      "n": 386,
+      "regression": {
+        "valence": {
+          "rmse": 0.1019,
+          "pearson_r": 0.7817,
+          "r2": 0.6016
+        },
+        "arousal": {
+          "rmse": 0.1027,
+          "pearson_r": 0.8183,
+          "r2": 0.6669
+        }
+      },
+      "classification": {
+        "accuracy": 0.7202,
+        "macro_f1": 0.5211
+      }
+    },
+    "deam": {
+      "n": 270,
+      "regression": {
+        "valence": {
+          "rmse": 0.0989,
+          "pearson_r": 0.7487,
+          "r2": 0.5443
+        },
+        "arousal": {
+          "rmse": 0.1003,
+          "pearson_r": 0.7796,
+          "r2": 0.6037
+        }
+      },
+      "classification": {
+        "accuracy": 0.6963,
+        "macro_f1": 0.4901
+      }
+    },
+    "pmemo": {
+      "n": 116,
+      "regression": {
+        "valence": {
+          "rmse": 0.1088,
+          "pearson_r": 0.7578,
+          "r2": 0.5684
+        },
+        "arousal": {
+          "rmse": 0.1082,
+          "pearson_r": 0.8316,
+          "r2": 0.6827
+        }
+      },
+      "classification": {
+        "accuracy": 0.7759,
+        "macro_f1": 0.5849
+      }
+    }
+  }
+}
