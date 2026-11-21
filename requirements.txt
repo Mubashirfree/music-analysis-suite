@@ -16,3 +16,8 @@ torch
 torchaudio
 transformers
 nnAudio
+faiss-cpu==1.16.0
+fastapi==0.165.0
+httpx==0.28.1
+python-multipart==0.0.34
+uvicorn==0.54.0

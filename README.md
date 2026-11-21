@@ -32,6 +32,23 @@ python -m offline.check_env
 - [x] P1.4 Feature extraction
 - [x] P1.5 Random Forest baseline
 - [x] P1.6 CNN with ECA attention (genre)
-- [ ] P1.7 Multitask mood model
-- [ ] P1.8 Cross-dataset / cross-lingual split
-- [ ] P1.9 Model export
+- [x] P1.7 Multitask mood model
+- [x] P1.8 Cross-dataset / cross-lingual split
+- [x] P1.9 Model export
+
+## Backend API (Phase 2)
+
+Start: `uvicorn backend.main:app --port 8000`, then open http://127.0.0.1:8000/docs
+
+| Method | Path | What it does |
+|---|---|---|
+| GET | /health | Songs in the catalogue and in the search index |
+| POST | /songs | Upload audio (wav, mp3, flac, ogg; 50 MB max): analyse, tag, store, index |
+| GET | /songs | List songs; filter with genre, quadrant or tag |
+| GET | /songs/{id} | One song with genre, mood and tags |
+| GET | /songs/{id}/similar | Nearest songs (library and catalogue) |
+| POST | /songs/{id}/tags | Add a manual tag |
+| DELETE | /songs/{id} | Delete a song, its saved file and its index entry |
+
+Batch import (stop the server first): `python -m backend.importer <folder> [max_songs]`
+Rebuild the search index: `python -m backend.similarity`

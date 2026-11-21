@@ -21,3 +21,7 @@ dist/
 
 #Editor
 .vscode/
+# Phase 2 runtime files (not source code)
+data/uploads/
+data/catalogue.db
+models/similarity/
