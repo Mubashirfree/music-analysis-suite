@@ -18,6 +18,7 @@ from pathlib import Path
 
 from fastapi import Depends, FastAPI, File, HTTPException, Query, UploadFile
 from fastapi.middleware.cors import CORSMiddleware
+from fastapi.responses import FileResponse
 from pydantic import BaseModel, Field
 
 from backend import db
@@ -27,6 +28,7 @@ from offline.config import DATA_PROCESSED
 from offline.features.cache import load_manifest
 
 UPLOAD_DIR = DATA_PROCESSED.parent / "uploads"  # data/uploads (git-ignored)
+AUDIO_TYPES = {".wav": "audio/wav", ".mp3": "audio/mpeg", ".flac": "audio/flac", ".ogg": "audio/ogg"}
 ALLOWED = {".wav", ".mp3", ".flac", ".ogg"}
 MAX_BYTES = 50 * 1024 * 1024  # 50 MB per upload
 
@@ -76,7 +78,10 @@ def create_app(analyse_fn=None, db_path=db.DB_PATH, index_dir=INDEX_DIR, upload_
     # The React dev server (Phase 3) runs on another port, so the browser needs permission.
     app.add_middleware(
         CORSMiddleware,
-        allow_origins=["http://localhost:5173", "http://localhost:3000"],
+        allow_origins=[
+            "http://localhost:5173", "http://127.0.0.1:5173",
+            "http://localhost:3000", "http://127.0.0.1:3000",
+        ],        
         allow_methods=["*"],
         allow_headers=["*"],
     )
@@ -140,7 +145,6 @@ def create_app(analyse_fn=None, db_path=db.DB_PATH, index_dir=INDEX_DIR, upload_
             raise
         song_id = db.add_song(conn, Path(file.filename).name, str(dest), _duration(dest))
         db.save_analysis(conn, song_id, result)
-        db.save_analysis(conn, song_id, result)
         apply_auto_tags(conn, song_id, result)
         with index_lock:
             index = get_index()
@@ -166,6 +170,17 @@ def create_app(analyse_fn=None, db_path=db.DB_PATH, index_dir=INDEX_DIR, upload_
             raise HTTPException(404, "Song not found.")
         return _public(song)
 
+    @app.get("/songs/{song_id}/audio")
+    def song_audio(song_id: int, conn=Depends(get_conn)):
+        song = db.get_song(conn, song_id)
+        if song is None:
+            raise HTTPException(404, "Song not found.")
+        path = Path(song["file_path"])  # from the database, never from the request
+        if not path.is_file():
+            raise HTTPException(404, "The audio file is no longer on the server.")
+        media_type = AUDIO_TYPES.get(path.suffix.lower(), "application/octet-stream")
+        return FileResponse(path, media_type=media_type)
+   
     @app.get("/songs/{song_id}/similar")
     def similar(song_id: int, k: int = Query(10, ge=1, le=50), conn=Depends(get_conn)):
         vector = db.get_embedding(conn, song_id)
